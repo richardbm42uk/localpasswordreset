@@ -34,7 +34,7 @@ dateLog(){
 }
 
 decrypt() {
-	echo "${1}" | /usr/bin/opensslopenssl enc -md md5 -aes256 -d -a -A -S ""${salt}"" -k "${passphrase}"
+	echo "${1}" | /usr/bin/openssl enc -md md5 -aes256 -d -a -A -S ""${salt}"" -k "${passphrase}"
 }
 
 #Start of script
