@@ -34,15 +34,7 @@ dateLog(){
 }
 
 decrypt() {
-	decrypted=$(echo "${1}" | /usr/bin/openssl enc -aes256 -d -a -A -S "${salt}" -k "${passphrase}")
-	if [ -z "$decrypted" ]; then
-	decrypted=$(echo "${1}" | openssl enc -md md5 -aes256 -d -a -A -S ""${salt}"" -k "${passphrase}")
-	fi
-	if [ -z "$decrypted" ]; then 
-		dateLog "Decryption Error"
-	else
-		echo "$decrypted"
-	fi
+	echo "${1}" | /usr/bin/opensslopenssl enc -md md5 -aes256 -d -a -A -S ""${salt}"" -k "${passphrase}"
 }
 
 #Start of script
