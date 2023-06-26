@@ -5,7 +5,7 @@
 # Change these variables
 adminUser="administrator"
 adminResetPlistPath="/Library/Managed Preferences/uk.co.academia.adminReset.plist"
-passphrase="a5c3b841e22196010c6709d8"
+passphrase="2a2d77446bf423b50129237b"
 
 debugMode=true
 
@@ -34,7 +34,15 @@ dateLog(){
 }
 
 decrypt() {
-	echo "${1}" | /usr/bin/openssl enc -aes256 -d -a -A -S "${salt}" -k "${passphrase}"
+	decrypted=$(echo "${1}" | /usr/bin/openssl enc -aes256 -d -a -A -S "${salt}" -k "${passphrase}")
+	if [ -z "$decrypted" ]; then
+	decrypted=$(echo "${1}" | openssl enc -md md5 -aes256 -d -a -A -S ""${salt}"" -k "${passphrase}")
+	fi
+	if [ -z "$decrypted" ]; then 
+		dateLog "Decryption Error"
+	else
+		echo "$decrypted"
+	fi
 }
 
 #Start of script
