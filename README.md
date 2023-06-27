@@ -125,6 +125,9 @@ It is strongly recommended to test the policy on a selection of Macs before wide
 
 In deployment, this script can fail if the administrator account has never logged in or if OS updates have occurred since the last login. The admin account will display as locked when running DSCL queries and can only be fixed by manually logging into the account. After this, script execution should work. In this case, a workaround is to completely remove the account and replace it with a new account - this is not recommended in workflows where FileVault is used as the new account may not be granted a Secure Token when programatically created by Jamf Pro, and is unlikely to have FileVault access until it is manually logged into for the first time.
 
+### Contributors
+Thank you to Matthew Duddington for troubleshooting / feedback.
+
 # License
 
 This Script is available for use at your own risk. It comes with no guarantees and the author cannot be held responsible for any harm caused by running it (especially without proper testing).
