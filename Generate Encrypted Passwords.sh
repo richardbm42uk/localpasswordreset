@@ -5,7 +5,7 @@
 PASSWORD=newPassword
 
 ## Generate new salt and passphrase on first run only
-firstRun=false
+firstRun=true
 
 ## Settings to configure after first run
 SALT="c23ad434d1a51985" #SALT
@@ -13,7 +13,7 @@ PASSPHRASE="a5c3b841e22196010c6709d8" #Passphrase
 
 # Start of script
 
-if [ $firstRun = false ]; then
+if [ $firstRun = true ]; then
 	SALT=$(openssl rand -hex 8)	
 	PASSPHRASE=$(openssl rand -hex 12)	
 
